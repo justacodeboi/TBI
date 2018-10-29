@@ -1,0 +1,123 @@
+import java.io.*;
+import static java.lang.System.*;
+
+import java.util.Scanner;
+import java.lang.Math;
+
+class Main {
+
+  public static void main(String str[]) throws IOException {
+
+    Scanner scan = new Scanner(System.in);
+
+    // Sign in info
+    String name = "admin";
+    String pass = "gateway";
+
+    // Establish all variables
+    String chatbank[] = { "Yeah", "I guess", "No way", "Lies", "Uh.." };
+    boolean run = true;
+    String namecheck = "";
+    String getpass = "";
+    String notepad = "";
+    String chat = "";
+    String in = "";
+    String chatAi = "";
+    String Aichatname = "Greg";
+    String AiChatresponse = "";
+    String chatint = "";
+    int inter = 0;
+    int wrong = 0;
+
+    // interface
+    while (run == true) {
+      while (run == true) {
+
+        // login
+        while (inter == 0) {
+          System.out.println("Please login:");
+          namecheck = scan.nextLine();
+          System.out.println("Enter Password");
+          getpass = scan.nextLine();
+          if ((!namecheck.equals(name)) || (!getpass.equals(pass))) {
+            System.out.println("Wrong Username or password");
+            wrong++;
+            if (wrong == 5) {
+              System.out.println("Threat Detected. Shuting down");
+              inter = -1;
+              run = false;
+            }
+          }
+
+          if (namecheck.equals(name) && getpass.equals(pass)) {
+            inter = 1;
+            wrong = 0;
+          }
+        }
+
+        // home page
+
+        while (inter == 1) {
+          System.out.println(
+              "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n--------------------------------\nWelcome to TBI");
+          System.out.println("Resources:\n1: Home\n2: Notepad\n3: Chat\n4. Coming soon\n5. Coming soon\n6. Logout");
+          System.out.println("\nPlease enter number of page:");
+          inter = scan.nextInt();
+        }
+
+        // notepad
+
+        while (inter == 2) {
+          System.out.println(
+              "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Notepad\nYour Note:\n"
+                  + notepad + "\nAdd to your note");
+          in = scan.nextLine();
+
+          if (!in.equals("done") && !in.equals("clear"))
+            notepad = notepad + ("\n" + in);
+
+          if (in.equals("clear"))
+            notepad = "";
+
+          if (in.equals("done"))
+            inter = 1;
+        }
+
+        // --------------------
+
+        while (inter == 3) {
+          System.out.println(
+              "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to TBI local chat\n"
+                  + chatint);
+          chat = scan.nextLine();
+          if (!chat.equals("done") && !chat.equals(""))
+            chatint = chatint + ("\n" + name + ": " + chat);
+          if (chat.equals("done"))
+            inter = 1;
+
+        }
+
+        while (inter == 4) {
+          System.out.println("Coming soon\n");
+          inter = 1;
+        }
+
+        while (inter == 5) {
+          System.out.println("Coming soon\n");
+          inter = 1;
+        }
+
+        while (inter == 6) {
+          System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogging out...");
+          inter = 0;
+          namecheck = "";
+          getpass = "";
+        }
+
+      }
+
+    }
+
+  }
+
+}
